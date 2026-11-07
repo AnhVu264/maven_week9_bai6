@@ -1,0 +1,24 @@
+name: CI/CD - Caching Optimization (Bài 6)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      # Cấu hình Caching cho Maven
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'oracle'
+          cache: 'maven' # Kích hoạt tính năng lưu trữ dependency
+
+      - name: Build with Maven
+        run: mvn -B clean verify
