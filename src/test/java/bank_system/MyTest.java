@@ -12,3 +12,5 @@ public class MyTest {
         assertEquals(expectedPath, logFile.getPath(), "Đường dẫn file log không đúng");
     }
 }
+
+// Kiểm tra tính năng của bài 6
